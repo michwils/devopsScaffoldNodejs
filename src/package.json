@@ -1,0 +1,49 @@
+{
+  "name": "example-scaffoldnodejs",
+  "version": "1.0.0",
+  "description": "A quick review and demo of how to develop nodejs code in a container.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "npm run build && nodemon --inspect=0.0.0.0 $npm_package_config_entry",
+    "debugssss": "node --inspect=0.0.0.0:9229 src/build/cmd/index.js",
+    "debug": "node -r ts-node/register --inspect=0.0.0.0:9229 $npm_package_config_tentry",
+    "debugNodemon": "nodemon --inspect=0.0.0.0:9229 --watch src/build/cmd/index.js",
+    "composeClean": "docker-compose down -v",
+    "composeBuild": "docker-compose build  --no-cache $npm_package_config_cuName",
+    "composeUp": "docker-compose up $npm_package_config_cuName",
+    "cu": "npm run composeClean && npm run composeBuild && npm run composeUp",
+    "watch": "tsc -w -p .",
+    "debug-brk": "nodemon --watch ./src/build --inspect-brk=0.0.0.0:9222 --nolazy ./src/build/cmd/index.js"
+  },
+  "config": {
+    "port": "6060",
+    "entry": "./build/cmd/index.js",
+    "cuName": "nodedev",
+    "tentry": "./cmd/index.ts",
+    "TAG": "1.1.1"
+  },
+  "keywords": [
+    "DevOps",
+    "Container",
+    "ContainerDevelopment",
+    "Scaffold",
+    "NodeJS",
+    "Typescript"
+  ],
+  "author": "Michael Wilson",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/axodevelopment/devopsScaffoldNodejs.git"
+  },
+  "devDependencies": {
+    "ts-node": "10.7.0",
+    "@types/express": "^4.17.*",
+    "@types/node": "^17.0.23"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  }
+}

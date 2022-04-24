@@ -1,0 +1,27 @@
+version: "3.6"
+services:
+
+  nodedev:
+    #Specify build or comment this out
+    image: axodevelopment/basicnodeapp:${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    #working_dir: /work      #comment out for build.target:prod
+    #entrypoint: /bin/sh     #comment out for build.target:prod
+    #stdin_open: true        #comment out for build.target:prod
+    #tty: true               #comment out for build.target:prod
+    volumes:
+      - .:/app
+      - ./src:/app/src
+      - ./src/build:/app/src/build
+     # - /app/node_modules
+    ports:
+      - 5002:6060
+      - 9229:9229            #debug port
+      - 9222:9222            #debug port
+    #command: npm run debugNodemon
+    environment:
+      - TAG=dev
+    command: npm start
