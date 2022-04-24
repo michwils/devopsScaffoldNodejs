@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devopsscaffoldnodejs
+spec:
+  type: ClusterIP
+  selector:
+    app: devopsscaffoldnodejs
+  ports:
+    - name: http
+      port: 6060
+      protocol: TCP
+      targetPort: http

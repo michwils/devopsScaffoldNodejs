@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopsscaffoldnodejs
+spec:
+  minReadySeconds: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: devopsscaffoldnodejs
+  template:
+    metadata:
+      labels:
+        app: devopsscaffoldnodejs
+    spec:
+      containers:
+      - name: devopsscaffoldnodejs
+        image: ghcr.io/stefanprodan/podinfo:6.0.3
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 6060
+          protocol: TCP
