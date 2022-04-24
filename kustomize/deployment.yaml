@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: devopsscaffoldnodejs
-        image: ghcr.io/stefanprodan/podinfo:6.0.3
+        image: axodevelopment/basicnodeapp:1.0.1
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
