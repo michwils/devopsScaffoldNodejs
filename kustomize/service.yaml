@@ -9,6 +9,6 @@ spec:
     app: devopsscaffoldnodejs
   ports:
     - name: http
-      port: 6060
+      port: 6061
       protocol: TCP
       targetPort: http
