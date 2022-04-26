@@ -4,7 +4,7 @@ metadata:
   name: devopsscaffoldnodejs
   namespace: devopsscaffoldnodejs
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: devopsscaffoldnodejs
   ports:
